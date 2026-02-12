@@ -12,19 +12,27 @@ The goal of this project is to demonstrate how modern DevOps monitoring tools ca
 
 ## 🏗️ System Architecture Overview
 
-The architecture follows a layered approach:
+The architecture follows a layered monitoring pipeline:
 
-Docker Containers
-↓
-cAdvisor (Metric Collector)
-↓
-Prometheus (Time-Series Database & Query Engine)
-↓
-Flask APIs (Processing & AI Layer)
-↓
-Frontend Dashboard & Grafana (Visualization)
+**Docker Containers**  
+⬇  
+**cAdvisor** – Collects container metrics (CPU, Memory, Network)  
+⬇  
+**Prometheus** – Scrapes and stores time-series data  
+⬇  
+**Flask APIs** – Queries Prometheus and adds AI logic  
+⬇  
+**Frontend Dashboard & Grafana** – Visualizes metrics and insights  
 
+---
 
+### 🔁 Data Flow Explanation
+
+- Docker runs application containers.
+- cAdvisor gathers container-level metrics.
+- Prometheus pulls metrics from cAdvisor.
+- Flask queries Prometheus and processes the data.
+- Grafana and the custom frontend display the results.
 
 ---
 
