@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Resource Monitoring Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Sidebar -->
+
+    <!-- Main content -->
+    <div id="main" style="margin: 0px 0px 0px 0px;">
+        
+        <!-- Top Bar -->
+        <div id="topbar">
+
+    <h1>System Resource Dashboard</h1>
+</div>
+
+
+        <!-- Stats Cards -->
+        <div class="cards">
+
+            <div class="card">
+                <h3>CPU Usage</h3>
+                <p id="cpu_value">--%</p>
+            </div>
+
+            <div class="card">
+                <h3>Memory Usage</h3>
+                <p id="memory_value">--%</p>
+            </div>
+
+            <div class="card">
+                <h3>Network RX</h3>
+                <p id="network_rx">-- KB</p>
+            </div>
+
+            <div class="card">
+                <h3>Network TX</h3>
+                <p id="network_tx">-- KB</p>
+            </div>
+
+        </div>
+
+        <!-- Charts -->
+        <!-- Charts -->
+<div class="charts-grid">
+    <div class="chart-box">
+        <canvas id="cpuChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <canvas id="memoryChart"></canvas>
+    </div>
+</div>
+
+
+        <!-- AI Insights Section -->
+        <div id="ai_insights">
+            <h2>AI Insights</h2>
+            <p id="ai_text">Waiting for data...</p>
+        </div>
+
+    </div>
+
+<!-- FIXED JAVASCRIPT -->
+<script>
+async function updateMetrics() {
+    try {
+        // Fetch all APIs
+        let cpu = await fetch("http://localhost:5000/api/cpu").then(res => res.json());
+        let memory = await fetch("http://localhost:5000/api/memory").then(res => res.json());
+        let network = await fetch("http://localhost:5000/api/network").then(res => res.json());
+        let ai = await fetch("http://localhost:5000/api/ai").then(res => res.json());
+
+        // Update text values (FIXED IDs)
+        document.getElementById("cpu_value").innerText = cpu.cpu + "%";
+        document.getElementById("memory_value").innerText = memory.memory + " MB";
+        document.getElementById("network_rx").innerText = network.rx + " KB/s";
+        document.getElementById("network_tx").innerText = network.tx + " KB/s";
+        document.getElementById("ai_text").innerText = ai.insight;
+
+    } catch (err) {
+        console.log("Error:", err);
+    }
+}
+
+// auto-refresh every 3 seconds
+setInterval(updateMetrics, 3000);
+updateMetrics();
+</script>
+
+<script src="js/app.js"></script>
+
+
+
+</body>
+</html>
