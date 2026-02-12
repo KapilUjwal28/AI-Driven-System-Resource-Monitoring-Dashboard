@@ -5,7 +5,7 @@ The system monitors CPU usage, memory usage, and network activity of running con
 
 The goal of this project is to demonstrate how modern DevOps monitoring tools can be integrated with AI logic to convert raw infrastructure data into meaningful, human-readable insights.
 
-🏗️ System Architecture Overview
+#🏗️ System Architecture Overview
 
 The architecture follows a layered approach:
 
@@ -19,8 +19,8 @@ Flask APIs (Processing & AI Layer)
 ↓
 Frontend Dashboard & Grafana (Visualization)
 
-⚙️ Technologies Used
-🐳 Docker & Docker Compose
+#⚙️ Technologies Used
+#🐳 Docker & Docker Compose
 
 Containerized the entire application stack
 
@@ -28,7 +28,7 @@ Managed multi-service architecture
 
 Ensured portability and isolation
 
-📊 cAdvisor
+#📊 cAdvisor
 
 Collected real-time container metrics
 
@@ -36,7 +36,7 @@ Monitored CPU, memory, and network usage
 
 Exposed metrics for Prometheus scraping
 
-📈 Prometheus
+#📈 Prometheus
 
 Scraped metrics from cAdvisor and Flask
 
@@ -44,7 +44,7 @@ Stored time-series data
 
 Used PromQL queries to retrieve metrics
 
-📊 Grafana
+#📊 Grafana
 
 Connected to Prometheus as a data source
 
@@ -52,7 +52,7 @@ Created professional monitoring dashboards
 
 Visualized CPU, memory, and network metrics
 
-🐍 Flask (Python Backend)
+#🐍 Flask (Python Backend)
 
 Built custom REST APIs:
 
@@ -70,7 +70,7 @@ Converted raw metrics into readable values
 
 Implemented AI rule-based insight logic
 
-🎨 Frontend (HTML, CSS, JavaScript, Chart.js)
+#🎨 Frontend (HTML, CSS, JavaScript, Chart.js)
 
 Built custom monitoring dashboard
 
@@ -88,7 +88,7 @@ AI-generated system insights
 
 Implemented auto-refresh for real-time updates
 
-🤖 AI Insight Layer
+#🤖 AI Insight Layer
 
 The AI module analyzes system metrics and provides intelligent recommendations.
 
@@ -108,7 +108,7 @@ Predictive resource usage modeling
 
 Auto-scaling logic
 
-🔥 Key Features
+#🔥 Key Features
 
 Real-time container monitoring
 
@@ -124,7 +124,7 @@ AI-based system health interpretation
 
 Clean and responsive frontend dashboard
 
-🎯 Project Highlights
+#🎯 Project Highlights
 
 Industry-standard DevOps toolchain
 
@@ -136,7 +136,7 @@ Scalable and extendable architecture
 
 Resume-ready, production-style project
 
-🚀 Future Enhancements
+#🚀 Future Enhancements
 
 ML-based anomaly detection
 
